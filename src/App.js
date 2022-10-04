@@ -1,10 +1,11 @@
+import './App.css';
 import React from 'react';
 import Nav from './components/Nav'
-import './App.css';
 import MainFeed from './components/MainFeed';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component{
-  
+
   render(){
     return (
       <React.Fragment>
