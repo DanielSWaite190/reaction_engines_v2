@@ -16,13 +16,27 @@ class MainFeed extends React.Component{
     .catch((error) => {
       console.error(error);
     });
-    console.log(this.state)
   }
 
   render(){
     return (
-        <div>
-            {this.state.engines.map((item) => <DisplayCard key={item.id} engine={item}/>)}
+        <div class="row">
+            {
+                this.state.engines.map((item) => {
+                    if(item.id % 2 == 0)
+                        return(
+                            <div className="col-6 py-3 d-flex justify-content-center">
+                                <DisplayCard key={item.id} engine={item}/>
+                            </div>
+                        )
+                    else
+                        return (
+                            <div className="col-6 py-3 d-flex justify-content-center">
+                                <DisplayCard key={item.id} engine={item}/>
+                            </div>
+                        )
+                })               
+            }
         </div>
         )
   }
