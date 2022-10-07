@@ -6,8 +6,8 @@ class MainFeed extends React.Component{
   static contextType = EngineContext
 
   componentDidMount() {
-    const engine = this.context
-    console.log(engine) 
+	const engine = this.context
+	console.log(engine) 
   }
 
   // constructor(props){
@@ -27,27 +27,27 @@ class MainFeed extends React.Component{
   // }
 
   render(){
-    return (
-        <div class="row">
-            {
-                this.context.engines.map((item) => {
-                    if(item.id % 2 == 0)
-                        return(
-                            <div className="col-6 py-3 d-flex justify-content-center">
-                                <DisplayCard key={item.id} engine={item}/>
-                            </div>
-                        )
-                    else
-                        return (
-                            <div className="col-6 py-3 d-flex justify-content-center">
-                                <DisplayCard key={item.id} engine={item}/>
-                            </div>
-                        )
-                })               
-            }
-        </div>
-        // <h1>{this.context.name}</h1>
-        )
+	return (
+		<div class="row">
+			{
+				this.context.engines.map((item) => {
+					if(item.id % 2 == 0)
+						return(
+							<div className="col-6 py-3 d-flex justify-content-center">
+								<DisplayCard key={item.id} engine={item}/>
+							</div>
+						)
+					else
+						return (
+							<div className="col-6 py-3 d-flex justify-content-center">
+								<DisplayCard key={item.id} engine={item}/>
+							</div>
+						)
+				})               
+			}
+		</div>
+		// <h1>{this.context.name}</h1>
+		)
   }
 }
 

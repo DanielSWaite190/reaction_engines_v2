@@ -3,61 +3,57 @@ import Card from 'react-bootstrap/Card';
 import withRouter from "./withRouter";
 import EngineContext from './EngineContext';
 
-
 class MainFeed extends React.Component{
-    static contextType = EngineContext
+	static contextType = EngineContext
 
-    componentDidMount() {
-      const engine = this.context
-      console.log(engine) 
-    }
+	constructor(props){
+			super(props)
+			this.state = {
+					detail: 0,
+					test: 0
+			}
+	}
+	
+	render(){
+		return(
+			<div>
+			{
+				this.context.engines.filter(e => e.id == this.props.params.id).map(filteredEngine => (
+					<Card style={{ width: '40rem' }} className='mx-auto'>
 
+					<Card.Img
+					height='auto'
+					bg='dark'
+					variant='top'
+					src={filteredEngine.image}
+					/>
 
-    render(){
-        return(
-            // <h1>{this.props.params.id}</h1>
-            // <h1>{this.context.engine}</h1>
-            <div>
+					<Card.Body>
 
-            {
-                this.context.engines.map((e) => 
-                    <p>{e.name}</p>
-                )
-            }
-            </div>
+					<Card.Title>
+							{/* <Link to={`/${this.props.engine.name}`}>{this.props.name}</Link> */}
+							<h2>{filteredEngine.name}</h2>
+					</Card.Title>
 
-        //     <Card style={{ width: '18rem' }} className='mx-auto'>
+					<Card.Text as='div'>
+							<h2>Cycle Type: {filteredEngine.cycle_type}</h2>
+							<h2>Fule: {filteredEngine.fule_type}</h2>
+							<h2>Thrust: {filteredEngine.thrust}</h2>
+							<h2>Thrust To Weight Ration:  {filteredEngine.thrust_to_weight}</h2>
+							<h2>Specific Impulse (Sea Level):  {filteredEngine.specific_impulse_cl}</h2>
+							<h2>pecific Impulse (vacuum): {filteredEngine.specific_impulse_vac}</h2>
+							<h2>Chamber Pressure: {filteredEngine.pressure}</h2>
+					</Card.Text>
 
-        //     <Card.Img
-        //     width='286'
-        //     height='286'
-        //     bg='dark'
-        //     variant='top'
-        //     src={this.props.engine.image}
-        //     />
+					</Card.Body>
 
-        //     <Card.Body>
+					</Card>
+				))
+			}
 
-        //     <Card.Title>
-        //         {/* <Link to={`/${this.props.engine.name}`}>{this.props.name}</Link> */}
-        //         <h2>{this.props.engine.name}</h2>
-        //     </Card.Title>
-
-        //     <Card.Text as='div'>
-        //         <h2>Cycle Type: {this.props.engine.cycle_type}</h2>
-        //         <h2>Fule: {this.props.engine.fule_type}</h2>
-        //         <h2>Thrust: {this.props.engine.thrust}</h2>
-        //         <h2>Thrust To Weight Ration:  {this.props.engine.thrust_to_weight}</h2>
-        //         <h2>Specific Impulse (Sea Level):  {this.props.engine.specific_impulse_cl}</h2>
-        //         <h2>pecific Impulse (vacuum): {this.props.engine.specific_impulse_vac}</h2>
-        //         <h2>Chamber Pressure: {this.props.engine.pressure}</h2>
-        //     </Card.Text>
-
-        //     </Card.Body>
-
-        // </Card>
-        )
-    }
+		</div>
+		)
+	}
 }
 
 export default withRouter(MainFeed);
