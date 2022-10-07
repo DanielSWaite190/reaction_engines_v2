@@ -4,7 +4,7 @@ import EngineContext from './EngineContext';
 
 class MainFeed extends React.Component{
   static contextType = EngineContext
-
+  
   render(){
 	return (
 		<div className="row">
@@ -25,7 +25,6 @@ class MainFeed extends React.Component{
 				})               
 			}
 		</div>
-		// <h1>{this.context.name}</h1>
 		)
   }
 }

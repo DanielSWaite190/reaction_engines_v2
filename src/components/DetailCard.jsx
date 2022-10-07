@@ -2,6 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import withRouter from "./withRouter";
 import EngineContext from './EngineContext';
+import { Button, Container } from 'react-bootstrap';
+
+import { Link } from 'react-router-dom';
 
 class MainFeed extends React.Component{
 	static contextType = EngineContext
@@ -12,42 +15,40 @@ class MainFeed extends React.Component{
 			{
 				this.context.filter(e => e.id == this.props.params.id).map(filteredEngine => (
 					<Card style={{ width: '40rem' }} className='mx-auto'>
-
-					<Card.Img
-					height='auto'
-					bg='dark'
-					variant='top'
-					src={filteredEngine.image}
-					/>
-
-					<Card.Body>
-
-					<Card.Title>
-							{/* <Link to={`/${this.props.engine.name}`}>{this.props.name}</Link> */}
-							<h2>{filteredEngine.name}</h2>
-					</Card.Title>
-
-					<Card.Text as='div'>
-							<h2>Cycle Type: {filteredEngine.cycle_type}</h2>
-							<h2>Fule: {filteredEngine.fule_type}</h2>
-							<h2>Thrust: {filteredEngine.thrust}</h2>
-							<h2>Thrust To Weight Ration:  {filteredEngine.thrust_to_weight}</h2>
-							<h2>Specific Impulse (Sea Level):  {filteredEngine.specific_impulse_cl}</h2>
-							<h2>pecific Impulse (vacuum): {filteredEngine.specific_impulse_vac}</h2>
-							<h2>Chamber Pressure: {filteredEngine.pressure}</h2>
-					</Card.Text>
-
-					</Card.Body>
-
+            <Card.Img
+            height='auto'
+            bg='dark'
+            variant='top'
+            src={filteredEngine.image}
+            />
+            <Card.Body>
+              <Card.Title>
+                  <h2>{filteredEngine.name}</h2>
+              </Card.Title>
+              <Card.Text as='div'>
+                  <h2>Cycle Type: {filteredEngine.cycle_type}</h2>
+                  <h2>Fule: {filteredEngine.fule_type}</h2>
+                  <h2>Thrust: {filteredEngine.thrust}</h2>
+                  <h2>Thrust To Weight Ration:  {filteredEngine.thrust_to_weight}</h2>
+                  <h2>Specific Impulse (Sea Level):  {filteredEngine.specific_impulse_cl}</h2>
+                  <h2>pecific Impulse (vacuum): {filteredEngine.specific_impulse_vac}</h2>
+                  <h2>Chamber Pressure: {filteredEngine.pressure}</h2>
+              </Card.Text>
+            </Card.Body>
+            <Container>
+              <div className="row">
+                <div className='col'><Button variant="primary">Eddit</Button></div>
+                <div className='col'><Button variant="danger" >Delete</Button></div>
+                {/* <Link to={`/${this.props.engine.name}`}>{this.props.name}</Link> */}
+              </div>
+            </Container>
 					</Card>
 				))
 			}
-
 		</div>
 		)
 	}
 }
 
 export default withRouter(MainFeed);
-
 //I thought you need a constructor for props 
