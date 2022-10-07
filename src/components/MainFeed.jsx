@@ -9,7 +9,7 @@ class MainFeed extends React.Component{
 	return (
 		<div className="row">
 			{
-				this.context.engines.map((item) => {
+				this.context.map((item) => {
 					if(item.id % 2 === 0)
 						return(
 							<div key={item.id} className="col-6 py-3 d-flex justify-content-center">

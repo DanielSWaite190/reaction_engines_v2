@@ -6,19 +6,11 @@ import EngineContext from './EngineContext';
 class MainFeed extends React.Component{
 	static contextType = EngineContext
 
-	constructor(props){
-			super(props)
-			this.state = {
-					detail: 0,
-					test: 0
-			}
-	}
-	
 	render(){
 		return(
 			<div>
 			{
-				this.context.engines.filter(e => e.id === this.props.params.id).map(filteredEngine => (
+				this.context.filter(e => e.id == this.props.params.id).map(filteredEngine => (
 					<Card style={{ width: '40rem' }} className='mx-auto'>
 
 					<Card.Img
