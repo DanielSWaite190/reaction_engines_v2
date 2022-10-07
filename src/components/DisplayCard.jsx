@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+
 
 class MainFeed extends React.Component{
   render(){
@@ -17,8 +19,7 @@ class MainFeed extends React.Component{
         <Card.Body>
 
           <Card.Title>
-            {/* <Link to={`/${this.props.engine.name}`}>{this.props.name}</Link> */}
-            <h2>{this.props.engine.name}</h2>
+            <h1><Link to={`/engine/${this.props.engine.id}`}>{this.props.engine.name}</Link></h1>
           </Card.Title>
 
           <Card.Text as='div'>

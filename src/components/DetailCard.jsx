@@ -18,7 +18,7 @@ class MainFeed extends React.Component{
 		return(
 			<div>
 			{
-				this.context.engines.filter(e => e.id == this.props.params.id).map(filteredEngine => (
+				this.context.engines.filter(e => e.id === this.props.params.id).map(filteredEngine => (
 					<Card style={{ width: '40rem' }} className='mx-auto'>
 
 					<Card.Img
